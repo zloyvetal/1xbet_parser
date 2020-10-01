@@ -16,7 +16,8 @@ def get_content(html):
     soup = BeautifulSoup(html, 'html.parser')
     items = soup.find_all("div", class_="c-events__item c-events__item_game c-events-scoreboard__wrap")
 
-
+    for item in items:
+        print(item.find(class_="c-events-scoreboard__item").find(class_="n").text)
 
 
 def parse():
@@ -26,5 +27,6 @@ def parse():
         get_content(html.text)
     else:
         print("ERROR")
+
 
 parse()
